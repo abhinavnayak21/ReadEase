@@ -1,7 +1,7 @@
 {
-  "name": "readease-backend",
+  "name": "readease",
   "version": "1.0.0",
-  "description": "Backend service for ReadEase Chrome extension & Web Studio",
+  "description": "ReadEase - Assistive Typography & AI Reading Studio",
   "main": "server.js",
   "engines": {
     "node": ">=18.0.0"
@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
     "web:dev": "npm --prefix frontend run dev",
     "web:build": "npm --prefix frontend run build"
   },

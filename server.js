@@ -6,6 +6,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
@@ -15,6 +16,10 @@ const app = express();
 app.use(cors({ origin: true, credentials: true }));
 app.options('*', cors());
 app.use(express.json());
+
+// Serve compiled Vite production frontend
+const frontendDist = path.join(__dirname, 'frontend', 'dist');
+app.use(express.static(frontendDist));
 
 // Curated high-quality ElevenLabs voices
 const CURATED_VOICES = [
@@ -30,7 +35,7 @@ const CURATED_VOICES = [
 /**
  * 1. Health Check
  */
-app.get('/', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
     service: 'ReadEase API',
@@ -258,6 +263,14 @@ app.post('/api/modify', async (req, res) => {
     console.error('Modification error:', error);
     res.status(500).json({ error: error.message });
   }
+});
+
+// SPA catch-all: serve index.html for client-side navigation
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'API route not found' });
+  }
+  res.sendFile(path.join(frontendDist, 'index.html'));
 });
 
 // Launch Express server
