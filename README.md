@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Accessibility: WCAG AAA Ready](https://img.shields.io/badge/Accessibility-WCAG%20AAA%20Ready-6366f1?style=for-the-badge)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/abhinavnayak21/ReadEase)
 
 > **ReadEase** is an open-source assistive typography studio and reading workspace built to make digital reading effortless for everyone—including neurodivergent readers, individuals with dyslexia or ADHD, language learners, and people with visual sensitivities.
 
